@@ -51,7 +51,7 @@ This project uses the publicly available **Qatari license plate dataset** from R
    ```bash
    git clone https://github.com/AdnanAbdelkarim/Capstone_Projects.git
    cd Capstone_Projects
-```
+   ```
 
 2. **Create a virtual environment (optional but recommended)**
    ```bash
