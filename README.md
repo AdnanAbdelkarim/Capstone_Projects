@@ -28,11 +28,9 @@ The `testing_images/` folder contains visual examples of the model’s inference
 | Input Image                    | Output Image                               | Description                            |
 |-------------------------------|--------------------------------------------|----------------------------------------|
 | `big_plate_vehicle.png`       | `big_plate_detected.png`                   | Vehicle image before and after plate detection |
-| `small_plate_vehicle.png`     | `small_plate_detected_and_cropped.png`     | Vehicle with a smaller plate size, before and after detection & optional cropping |
+| `small_plate_vehicle.png`     | `small_plate_detected_and_cropped.png`     | Vehicle with a smaller plate size, before and after detection |
 
 These image pairs show the model's ability to locate license plates across various vehicle and plate sizes.
-
-> 📂 These files serve as examples of how the model performs on real-world data using the `testing_script.py`.
 
 ---
 
@@ -44,7 +42,6 @@ This project uses the publicly available **Qatari license plate dataset** from R
 - Dataset includes images annotated with bounding boxes for number plates.
 - Split into `train/`, `valid/`, and `test/` sets.
 
-> **Note:** The dataset folder is excluded from the repo due to size constraints.
 
 ---
 
@@ -52,14 +49,14 @@ This project uses the publicly available **Qatari license plate dataset** from R
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/Capstone_LPR.git
-   cd Capstone_LPR
-   ```
+   git clone https://github.com/AdnanAbdelkarim/Capstone_Projects.git
+   cd Capstone_Projects
+```
 
 2. **Create a virtual environment (optional but recommended)**
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   # On Mac/Linux use: source venv/bin/activate  # On Windows use: `venv\Scripts\activate`
    ```
 
 3. **Install dependencies**
@@ -75,10 +72,33 @@ This project uses the publicly available **Qatari license plate dataset** from R
 
 ## 🧪 Inference
 
-Run the detection on new images:
+Run the detection on a test image:
 
 ```bash
 python testing_script.py
+```
+
+The script will:
+- Load your trained YOLOv8 model
+- Run OCR on the specified image
+- Display the prediction and save the output to the `testing_images/` folder
+
+---
+
+### ⚠️ Before running, update the following paths in `testing_script.py`:
+
+```python
+# ✅ Load the trained YOLO model
+model = YOLO("C:/Users/student/Desktop/LPR/lpr_training/weights/best.pt")  # ← update this path
+
+# ✅ Path to the test image
+img_path = "C:/Users/student/Desktop/LPR/testing_images/1.png"             # ← update this path
+```
+
+✅ Example update:
+```python
+model = YOLO("lpr_training/weights/best.pt")
+img_path = "testing_images/car1.png"
 ```
 
 - The script will read images from the `testing_images/` folder and save outputs with predicted bounding boxes to the same folder.
@@ -90,7 +110,7 @@ python testing_script.py
 The model was trained using the `LPR_QATAR_PLATES.ipynb` notebook:
 
 - Training was conducted with the YOLOv8n architecture using the Ultralytics library.
-- The notebook includes preprocessing, training, validation, and result visualization.
+- The notebook includes preprocessing, training and validation.
 
 The training outputs (in `lpr_training/`) include:
 - `confusion_matrix.png` and normalized version
@@ -103,7 +123,6 @@ The training outputs (in `lpr_training/`) include:
 
 ## 🚧 Notes
 
-- Large folders such as `dataset/`, `lpr_training/`, and the YOLO model `.pt` file were excluded from this repo due to size limits. These can be shared upon request.
 - Ensure you adjust the `paths` in the notebook or scripts if you use a different directory structure.
 
 ---
