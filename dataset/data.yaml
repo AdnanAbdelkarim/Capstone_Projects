@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 11
+names: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'np']
+
+roboflow:
+  workspace: rao-waqas
+  project: qatar-number-plate
+  version: 5
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/rao-waqas/qatar-number-plate/dataset/5
