@@ -33,15 +33,17 @@ The `testing_images/` folder contains visual examples of the model’s inference
 These image pairs show the model's ability to locate license plates across various vehicle and plate sizes.
 
 ---
-
 ## 📊 Dataset
 
 This project uses the publicly available **Qatari license plate dataset** from Roboflow.
 
 - 📎 Source: [Roboflow - Qatar Number Plate](https://universe.roboflow.com/rao-waqas/qatar-number-plate/dataset/5)
-- Dataset includes images annotated with bounding boxes for number plates.
-- Split into `train/`, `valid/`, and `test/` sets.
-
+- Dataset includes **1,034 annotated images** of Qatari license plates, all labeled with bounding boxes in YOLO format.
+- The data was automatically split via Roboflow into:
+  - **80% training set** (~827 images)
+  - **10% validation set** (~104 images)
+  - **10% test set** (~103 images)
+- All sets follow YOLO format and are organized into separate folders (`train/`, `valid/`, `test/`).
 
 ---
 
