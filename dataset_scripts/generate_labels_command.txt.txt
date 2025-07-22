@@ -1,0 +1,1 @@
+yolo detect predict model=yolov8n.pt source="C:/Users/student/Desktop/train/images" save_txt=True project="auto_labels" name="yolov8_labels"
